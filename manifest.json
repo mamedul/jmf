@@ -1,0 +1,47 @@
+{
+  "name": "JMF Foundation",
+  "short_name": "JMF",
+  "description": "Jaldhaka Humanitarian Foundation is a community-driven nonprofit based in Rangpur and Dhaka, Bangladesh, focused on emergency medical support, community welfare, and local outreach.",
+  "version": "1.0.0",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "medical",
+    "health",
+    "social"
+  ],
+  "shortcuts": [
+    {
+      "name": "Find Blood",
+      "short_name": "Search",
+      "description": "Search for blood donors nearby",
+      "url": "./#/dashboard?tab=search",
+      "icons": [{ "src": "search.png", "sizes": "256x256" }]
+    },
+    {
+      "name": "Donate Now",
+      "short_name": "Donate",
+      "description": "Register as a donor",
+      "url": "./#/register",
+      "icons": [{ "src": "plus.png", "sizes": "256x256" }]
+    }
+  ]
+}
