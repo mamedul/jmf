@@ -109,14 +109,14 @@ self.addEventListener('message', async (event) => {
   if (event.data && event.data.type === 'CHECK_VERSION') {
     try {
       // 1. Fetch the manifest from the network (bypass cache)
-      const networkManifestRes = await fetch('/manifest.json?t=' + Date.now(), { 
+      const networkManifestRes = await fetch('./manifest.json?t=' + Date.now(), { 
         cache: 'no-store' 
       });
       const networkManifest = await networkManifestRes.json();
 
       // 2. Fetch the manifest currently stored in Cache API (if exists)
       const cache = await caches.open(CACHE_NAME);
-      const cachedManifestRes = await cache.match('/manifest.json');
+      const cachedManifestRes = await cache.match('./manifest.json');
       
       let cachedVersion = '0.0.0';
       if (cachedManifestRes) {
@@ -130,7 +130,7 @@ self.addEventListener('message', async (event) => {
       if (networkManifest.version !== cachedVersion) {
         
         // 4. Update the cached manifest immediately so we don't notify again until next version
-        await cache.put('/manifest.json', new Response(JSON.stringify(networkManifest)));
+        await cache.put('./manifest.json', new Response(JSON.stringify(networkManifest)));
 
         // 5. Notify the React Client
         const allClients = await self.clients.matchAll({ includeUncontrolled: true });
